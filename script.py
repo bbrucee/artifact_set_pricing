@@ -15,7 +15,6 @@ def hourly_update():
         listings_json = get(url).json()['results']
         for listing in listings_json:
             name_price_list.append((listing['name'], listing['sell_price']))
-            print(listing['name'], listing['sell_price'])
 
     # 3 of each non-hero card
     # 1 of each hero
