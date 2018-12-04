@@ -1,6 +1,6 @@
 hourly_price = []
 filepath = "hourly_prices.txt"
-with open(filepath, encoding="utf8") as fp:
+with open(filepath) as fp:
     for line in fp:
         hourly_price.extend(line.strip().split(', '))
 
