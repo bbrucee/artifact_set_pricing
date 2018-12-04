@@ -1,10 +1,13 @@
 from requests import get
 import csv
 from datetime import datetime, timedelta
+import time
 
-def update_price_file(time, price):
+
+def update_price_file(input_time, input_price):
     with open('hourly_prices.txt', 'a') as file:
-        file.write('{}, {}\n'.format(time, price))
+        file.write('{}, {}\n'.format(input_time, input_price))
+
 
 def hourly_update():
     name_price_list = []
@@ -25,7 +28,7 @@ def hourly_update():
         else:
             set_price = set_price + 3*card[1]
 
-    current_time = datetime.datetime.now()
+    current_time = datetime.now()
     current_price = set_price/100
     update_price_file(current_time, current_price)
 
